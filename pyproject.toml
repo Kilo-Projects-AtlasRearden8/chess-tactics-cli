@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chess-tactics-cli"
+version = "0.1.0"
+description = "Python CLI to drill chess tactics from FEN positions: find the best move, track accuracy and streaks in local JSON, with quiz mode."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "python-chess>=1.999",
+]
+
+[project.scripts]
+chess-tactics-cli = "chess_tactics.cli:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.10"]
