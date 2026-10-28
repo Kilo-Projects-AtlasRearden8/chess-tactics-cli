@@ -2,7 +2,7 @@
 
 chess-tactics-cli — local-first Python CLI for drilling chess tactics from
 FEN positions.
-Commit: initial commit, branch: master.
+Commit: re-reviewed release (post-README polish), branch: master.
 
 ## What was built
 
@@ -24,8 +24,7 @@ Modules:
 - `storage.py` — `Storage`: atomic read/write of tactics to a local JSON
   file (temp file + os.replace), with add/load/find/delete/update.
 - `quiz.py` — `check_move` (SAN or UCI input, canonical SAN comparison
-  against the best move) and `pick_quiz_tactic` (unsolved first, then
-  least-attempted).
+  against the best move).
 - `cli.py` — argparse commands: `add`, `list`, `show`, `solve`, `quiz`,
   `stats`, `delete`; `--storage` option (default `tactics.json`).
 - `__main__.py` — supports `python -m chess_tactics`.
@@ -88,8 +87,8 @@ Python 3.13.5; dependency: python-chess 1.11.2 (imported as `chess`).
   moves are not verified against engine analysis.
 - Move answers are accepted in SAN or UCI and compared as canonical SAN;
   equivalent-looking notations are normalized by python-chess.
-- Quiz picks unsolved/least-attempted tactics with randomness; no
-  spaced-repetition scheduling.
+- Quiz shows each tactic once per session, unsolved first; no
+  spaced-repetition scheduling or repeat-of-incorrect logic.
 - No edit command (delete and re-add instead).
 - Storage path defaults to `tactics.json` in the current directory; use
   `--storage` for another location.
